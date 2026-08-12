@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  /* --- Palette: dusk courtyard, marigold + sindoor, aged brass ---------- */
+  --color-dusk: #1a120c;       /* near-black warm brown, page floor      */
+  --color-ember: #b8451f;      /* burnt terracotta, secondary accent     */
+  --color-marigold: #e0a639;   /* primary accent — dial glow, seek fill  */
+  --color-sindoor: #9c2b3c;    /* deep vermilion, sparingly              */
+  --color-ivory: #f3ead8;      /* warm off-white for text                */
+  --color-brass: #8c6a3f;      /* muted secondary / borders              */
+
+  /* --- Type -------------------------------------------------------------- */
+  --font-display: "Tiro Bangla", "Noto Serif Bengali", serif;
+  --font-body: "Hind Siliguri", "Noto Sans Bengali", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+  /* background-color: var(--color-dusk); */
+  font-family: var(--font-body);
+}
+
+/* ------------------------------------------------------------------------ */
+/* Fixed background: wide by default, tall in portrait orientation          */
+/* ------------------------------------------------------------------------ */
+.hero-bg {
+  /* background-image: url("/bg/scene-wide.png"); */
+  background-image: url("/bg/scene-wide.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (orientation: portrait) {
+  .hero-bg {
+    background-image: url("/bg/scene-tall.png");
+  }
+}
+
+/* ------------------------------------------------------------------------ */
+/* Vinyl spin — paused/running driven inline via animationPlayState         */
+/* ------------------------------------------------------------------------ */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-vinyl-spin {
+  animation: spin 8s linear infinite;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Ambient "on-air" glow behind the vinyl / seek fill — subtle, not neon    */
+/* ------------------------------------------------------------------------ */
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3.5s ease-in-out infinite;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Respect reduced motion everywhere                                        */
+/* ------------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  .animate-vinyl-spin,
+  .animate-glow-pulse {
+    animation: none !important;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ------------------------------------------------------------------------ */
+/* Tabular numerals for clock + elapsed/duration                            */
+/* ------------------------------------------------------------------------ */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Visible keyboard focus ring, consistent across custom controls */
+:focus-visible {
+  outline: 2px solid var(--color-marigold);
+  outline-offset: 2px;
+}
