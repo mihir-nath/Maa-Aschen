@@ -11,25 +11,6 @@ npm install
 npm run dev
 ```
 
-## What's real vs. placeholder
-
-- **`public/bg/scene-wide.png`** — your uploaded hero art, wired in as-is.
-- **`public/bg/scene-tall.png`** — currently a copy of the wide image so the
-  portrait media query doesn't 404. Replace with a real portrait-composed
-  scene (not a crop) when you have one — same filename.
-- **`public/covers/default.svg`** — a radio-dial placeholder used for every
-  track's spinning "vinyl." Drop per-song art into `public/covers/` and point
-  each song's `cover` field in `lib/songs.ts` at it.
-- **`public/audio/*.mp3`** — not included. `lib/songs.ts` already has an
-  `id`-matched path (e.g. `/audio/bajlo-tomar-alor-benu.mp3`) reserved for
-  each of your 20 songs — add files with those exact names and playback works
-  immediately. `duration` values are placeholders that get overwritten by the
-  real file's metadata once it loads.
-- **Listener count** is simulated client-side (drifts randomly) since no
-  backend/analytics source was specified — swap the logic in
-  `components/ListenerCount.tsx` for a real feed when you have one.
-- **Social links** in `components/SocialLinks.tsx` point at placeholder URLs.
-
 ## Structure
 
 ```
