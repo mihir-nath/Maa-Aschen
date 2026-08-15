@@ -4,6 +4,9 @@ A single-page nostalgia Agomoni radio: bottom-anchored glass player over a
 fixed festival-courtyard scene, built with Next.js App Router + TypeScript +
 Tailwind v4.
 
+<img width="2397" height="1306" alt="image" src="https://github.com/user-attachments/assets/ce4e3a5f-1ea3-451d-a276-ffbe9cbe0e23" />
+
+
 ## Run it
 
 ```bash
